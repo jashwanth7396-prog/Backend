@@ -1,26 +1,33 @@
-Lab 01: Node.js and Express Server
-Student Details
-Field	Details
-Name	G JESHWANTH REDDY
-Registration Number	252U1R9044
-Section	CSE-GEN-AI 2A 304
-Course	Backend Development Fundamentals
-Lab Number	01
-Live Deployment
+# Lab 1: Node.js and Express Server
 
-View Live Application
+## Student Details
 
-1. Objective
+| Field | Details |
+|---|---|
+| Name | G JESHWANTH REDDY |
+| Registration Number | 252U1R9044 |
+| Section | CSE-GEN-AI 2A 304 |
+| Course | Backend Development Fundamentals |
+| Lab | 01 |
 
-To set up a Node.js project, create a basic HTTP server using Node.js's built-in http module, and develop an Express.js server with multiple routes and appropriate HTTP status codes.
+## Live Deployment
 
-2. Technologies Used
-Node.js – JavaScript runtime environment.
-Express.js – Web application framework for Node.js.
-JavaScript – Programming language.
-npm – Node.js package manager.
-3. Project Structure
-text
+[Open the deployed application](https://backend-development-fundamentals-la-rho.vercel.app/)
+
+## Objective
+
+Set up a Node.js project, create a basic HTTP server with Node.js's built-in `http` module, and build an Express server with multiple routes and appropriate HTTP status codes.
+
+## Technologies
+
+- **Node.js** — JavaScript runtime
+- **Express.js** — Web framework for Node.js
+- **JavaScript** — Programming language
+- **npm** — Node.js package manager
+
+## Project Structure
+
+```text
 .
 ├── screenshots/
 │   ├── about.png
@@ -33,127 +40,106 @@ text
 ├── package-lock.json
 ├── .gitignore
 └── README.md
+```
 
-4. Getting Started
-Prerequisites
+## Getting Started
 
-Make sure the following are installed:
+### Prerequisites
 
-Node.js
-npm (Node Package Manager)
-Running the Express Server
+- Node.js
+- npm
 
-Step 1: Open the project directory in a terminal.
+### Run the Express server
 
-Step 2: Install the project dependencies.
+1. Open the project folder in a terminal.
+2. Install dependencies:
 
-bash
-npm install
+   ```bash
+   npm install
+   ```
 
+3. Start the server:
 
-Step 3: Start the Express server.
+   ```bash
+   node server.js
+   ```
 
-bash
-node server.js
+4. Visit [http://localhost:3000](http://localhost:3000).
 
+### Run the basic HTTP server
 
-Step 4: Open the application in your browser.
+The project also includes a minimal server using Node.js's built-in HTTP module:
 
-text
-http://localhost:3000
-
-Running the Basic HTTP Server
-
-The project also includes a basic HTTP server implemented using Node.js's built-in http module.
-
-Run the following command:
-
-bash
+```bash
 node server-http.js
+```
 
+Both servers use port `3000`, so stop one with `Ctrl + C` before starting the other.
 
-Note: Both servers use port 3000. Stop the currently running server using Ctrl + C before starting the other server.
+## API Endpoints
 
-5. API Endpoints
+| Method | Endpoint | Response | Status |
+|---|---|---|---|
+| `GET` | `/` | Welcome message | `200 OK` |
+| `GET` | `/about` | Student name and section as JSON | `200 OK` |
+| `GET` | `/time` | Current date and time as JSON | `200 OK` |
+| `GET` | Any undefined path (for example, `/anything`) | `404 - Page Not Found` | `404 Not Found` |
 
-The Express application implements the following GET routes:
+## Screenshots
 
-HTTP Method	Endpoint	Description	Status Code
-GET	/	Displays a welcome message	200 OK
-GET	/about	Returns student name and section in JSON format	200 OK
-GET	/time	Returns the current date and time in JSON format	200 OK
-GET	/anything	Returns a Page Not Found message for undefined routes	404 Not Found
+The screenshots below show the Express routes running locally at `http://localhost:3000`.
 
-Example: Any undefined route, such as /anything, returns a 404 response.
+### Home — `GET /`
 
-6. Screenshots
+Returns the welcome message.
 
-The following screenshots demonstrate the Express server routes running locally at http://localhost:3000.
+![Home route showing the welcome message](screenshots/home.png)
 
-6.1 Home Route – GET /
+### About — `GET /about`
 
-Displays the welcome message when the root endpoint is accessed.
+Returns the student name and section as JSON.
 
-!Home route showing the welcome message
+![About route returning student details as JSON](screenshots/about.png)
 
-6.2 About Route – GET /about
+### Time — `GET /time`
 
-Returns the student name and section as a JSON response.
+Returns the current date and time as JSON.
 
-!About route returning student details as JSON
+![Time route returning the current date and time](screenshots/time.png)
 
-6.3 Time Route – GET /time
+### Not found — `GET /anything`
 
-Returns the current date and time in JSON format.
+An undefined path returns a 404 response.
 
-!Time route returning the current date and time
+![Unknown route returning a 404 Page Not Found response](screenshots/anything.png)
 
-6.4 Not Found Route – GET /anything
+## HTTP Status Codes
 
-Displays a 404 Page Not Found response when an undefined endpoint is accessed.
+| Code | Name | Meaning |
+|---|---|---|
+| `200` | OK | The request succeeded. |
+| `404` | Not Found | The requested route does not exist. |
 
-!Unknown route returning a 404 Page Not Found response
+## Viva Questions
 
-7. HTTP Status Codes
+### 1. What is the difference between `package.json` and `node_modules`?
 
-The application uses the following HTTP status codes:
+`package.json` stores project metadata, scripts, and dependency information. `node_modules` contains the installed packages required by the project.
 
-Status Code	Name	Description
-200	OK	Indicates that the request was successfully processed.
-404	Not Found	Indicates that the requested route does not exist.
-8. Viva Questions and Answers
-Q1. What is the difference between package.json and node_modules?
+### 2. What does `app.listen()` do?
 
-Answer:
+`app.listen()` starts the Express server and makes it listen for incoming requests on a specified port.
 
-package.json stores project metadata, scripts, and dependency information.
-node_modules contains the actual installed packages and libraries required by the project.
-Q2. What does app.listen() do?
+### 3. What do `request` and `response` represent?
 
-Answer:
+`request` contains information about the incoming HTTP request. `response` is used to send data and status codes back to the client.
 
-app.listen() starts the Express server and makes it listen for incoming HTTP requests on a specified port.
+## Repository Notes
 
-Q3. What do request and response represent?
+- `.gitignore` excludes `node_modules/` and `.env`.
+- Do not commit the `node_modules/` directory.
+- Route screenshots are stored in `screenshots/`.
 
-Answer:
+## Conclusion
 
-Request: Contains information about the incoming HTTP request, such as the URL, HTTP method, and headers.
-Response: Is used to send data, HTTP status codes, and other information back to the client.
-9. Repository Notes
-The .gitignore file excludes node_modules/ and .env.
-The node_modules/ directory should not be committed to the Git repository.
-All route screenshots are organized inside the screenshots/ directory.
-The project includes both a basic Node.js HTTP server and an Express.js server.
-10. Conclusion
-
-Successfully completed Lab 01 by setting up a Node.js project and implementing two types of web servers:
-
-A basic HTTP server using Node.js's built-in http module.
-An Express.js server with multiple GET routes.
-
-Tested the application endpoints and verified successful responses using HTTP status codes 200 OK and 404 Not Found.
-
-This lab provides a foundation for understanding Node.js, Express.js, HTTP requests, responses, routing, and basic backend server development.
-
-End of Lab 01
+This lab demonstrates a basic Node.js HTTP server and an Express server with multiple GET routes. The endpoints were tested with successful `200 OK` responses and a `404 Not Found` response for undefined routes.
