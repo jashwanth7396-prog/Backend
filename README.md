@@ -12,7 +12,7 @@
 
 ## Live Deployment
 
-[Open the deployed application](https://backend-development-fundamentals-la-rho.vercel.app/)
+[Open the deployed application](https://lab-1-lac.vercel.app/)
 
 ## Objective
 
